@@ -17,8 +17,30 @@
            <div id="nav">
             <img th:src="@{image/logo.png}" alt="">
             <div id="right">
-                <a href="" th:href="form"><h3>Login</h3></a>
-                <a href="#"><h3>Help</h3><i class="ri-question-line"></i></a>
+
+                <th:block th:if="${userInfo !=null }">
+                    <!-- Show profile link and logout -->
+                    <a href="" th:href="@{/profile}"><h3 th:text="${userInfo.firstname}">profile</h3></a>
+                    <a href="" th:href="@{/help}"><h3>Help</h3><i class="ri-question-line"></i></a>
+
+                </th:block>
+
+                <th:block th:if="${userInfo == null}">
+                    <!-- Show login and help links if the user is not logged in -->
+                    <a href="" th:href="@{/form}"><h3>Login</h3></a>
+                    <a href="" th:href="@{/help}"><h3>Help</h3><i class="ri-question-line"></i></a>
+                </th:block>
+<!--                <p> firstname: <span th:text="${userInfo}">Name</span></p>-->
+<!--                <div th:if="${username}==null">-->
+<!--                    <a href="" th:href="@{/form}" ><h3>Login</h3></a>-->
+<!--                    <a href="" th:href="@{/help}" ><h3>Help</h3><i class="ri-question-line"></i></a>-->
+<!--                </div>-->
+<!--                <div th:if="${username}!=null">-->
+<!--                    <span><span th:text="${username}"></span></span>-->
+<!--                    <form th:action="@{logout}" method= post style="display:inline">-->
+<!--                        <button type="submit">Logout</button>-->
+<!--                    </form>-->
+<!--                </div>-->
             </div>
            </div>
            <div id="image">
@@ -36,7 +58,7 @@
             <div class="cardimg">
                 <img src="https://i.pinimg.com/564x/fc/d6/88/fcd6885f2e85615afeeca66d02c10079.jpg" alt="">
             </div>
-            
+
          </div>
          <div class="cards" id="second">
             <div class="cardimg">
@@ -68,7 +90,7 @@
             </div>
             <h2>Decoration</h2>
          </div>
-        
+
         </div>
         <div id="page3">
             <div id="vid">
@@ -89,15 +111,15 @@
                 <div id="right">
                     <div id="r1">
                         <div id="top">
-                            <a href="#"><img src="https://i.pinimg.com/564x/5d/a8/b4/5da8b4a7f24ec8309f384ac910c8dadf.jpg" alt=""></a> 
+                            <a href="#"><img src="https://i.pinimg.com/564x/5d/a8/b4/5da8b4a7f24ec8309f384ac910c8dadf.jpg" alt=""></a>
                         </div>
                         <div id="bottom">
-                            <a href="#"><img src="https://i.pinimg.com/564x/e0/d0/0d/e0d00dd013e0eab824c9760c0a0cfa1b.jpg" alt=""></a> 
+                            <a href="#"><img src="https://i.pinimg.com/564x/e0/d0/0d/e0d00dd013e0eab824c9760c0a0cfa1b.jpg" alt=""></a>
                         </div>
                     </div>
                     <div id="r2">
                         <div id="uper">
-                           <a href="#"><img src="https://i.pinimg.com/564x/71/68/83/7168832d3a8304755754bdf55606a292.jpg" alt=""></a> 
+                           <a href="#"><img src="https://i.pinimg.com/564x/71/68/83/7168832d3a8304755754bdf55606a292.jpg" alt=""></a>
                         </div>
                         <div id="niche">
                             <a href="#"><img src="https://i.pinimg.com/564x/e2/e0/22/e2e022a5f18f2c8361523ad6ecbc50d0.jpg" alt=""></a>
@@ -129,18 +151,18 @@
               </div>
               <div class="info">
                 <a href="#"><h2>Best Wedding Grown For Your<br>
-                    Dream Day</h2></a> 
+                    Dream Day</h2></a>
                 <p>23 Sep 2022</p>
               </div>
             </div>
             <div class="sections">
               <div class="secimg">
                 <img src="https://i.pinimg.com/564x/a8/0f/50/a80f50af8241959df172b5119336af50.jpg" alt="" />
-                
+
               </div>
               <div class="info">
                 <a href="#"><h2>Top 10 wedding fresh flower<br>
-                    decoration idea.</h2></a> 
+                    decoration idea.</h2></a>
                 <p>21 Sep 2022</p>
               </div>
             </div>

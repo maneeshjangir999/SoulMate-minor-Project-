@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
+<div class="max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
+
+    <form th:action="@{/save}" th:object="${userInfo}" method="post">
+        <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Register</h2>
+        <div th:if="${userpresent}" class="text-red-500 text-sm mt-1">
+            <p th:text="${userpresent}">User already exists</p>
+        </div>
+<!--        <div th:if="${#fields.hasErrors('userfirstname','userlastname')}" class="text-red-500 text-sm mt-1">-->
+<!--            <p th:errors="*{userfirstname}">Full Name is required</p>-->
+<!--        </div>-->
+        <div class="mb-4">
+            <label for="registerFirstName" class="block text-sm font-medium text-gray-700 dark:text-gray-400">First Name</label>
+            <input type="text" id="registerFirstName" th:field="*{firstname}" class="w-full px-3 py-2 mt-1 text-sm text-gray-900 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-gray-200 dark:placeholder-gray-600 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:focus:border-transparent" placeholder="Enter your full name" required="">
+        </div>
+
+        <div class="mb-4">
+            <label for="registerLastName" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Last Name</label>
+            <input type="text" id="registerLastName" th:field="*{lastname}" class="w-full px-3 py-2 mt-1 text-sm text-gray-900 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-gray-200 dark:placeholder-gray-600 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:focus:border-transparent" placeholder="Enter your full name" required="">
+        </div>
+
+        <div th:if="${#fields.hasErrors('email')}" class="text-red-500 text-sm mt-1">
+            <p th:errors="*{email}">Email is required</p>
+        </div>
+        <div class="mb-4">
+            <label for="registerEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Email Address</label>
+            <input type="email" id="registerEmail" th:field="*{email}" class="w-full px-3 py-2 mt-1 text-sm text-gray-900 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-gray-200 dark:placeholder-gray-600 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:focus:border-transparent" placeholder="Enter your email" required="">
+        </div>
+        <div th:if="${#fields.hasErrors('password')}" class="text-red-500 text-sm mt-1">
+            <p th:errors="*{password}">6 Letters password is required</p>
+        </div>
+        <div class="mb-6">
+            <label for="registerPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Password</label>
+            <input type="password" id="registerPassword" th:field="*{password}" class="w-full px-3 py-2 mt-1 text-sm text-gray-900 placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-gray-200 dark:placeholder-gray-600 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:focus:border-transparent" placeholder="Enter your password" required="">
+        </div>
+        <button type="submit" class="w-full px-4 py-2 mb-4 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-600">Register</button>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Already have an account? <a href="/form" class="text-blue-600 dark:text-blue-400">Login here</a></p>
+    </form>
+</div>
+</body>
+</html>

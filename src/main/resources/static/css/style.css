@@ -48,24 +48,38 @@ html,body{
 }
 #nav #right{
     display:flex;
-    gap:20px;
+    justify-content: space-between;
+    align-items: center;
+    /*width: 200px;*/
     margin-right:50px;
+    position: relative;
+    gap: 20px;
 }
 #nav #right h3{
     font-weight:500;
     cursor:pointer;
     color:#95857F;
+    margin: 0;
+    padding: 0;
 }
 #nav #right a{
     text-decoration:none;
     color:#000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+#nav #right a:last-child {
+    margin-right: 0;
+}
+
+/*#nav #right a h3 {*/
+/*    margin: 0 5px 0 0;*/
+/*}*/
 #right i{
-    position:absolute;
-    top:26px;
-    right:70px;
-    font-size:18px;
-    color:#95857F;
+    font-size: 18px;
+    color: #95857F;
+    /*margin-left: 10px;*/
 }
 #image{
     height:100%;
